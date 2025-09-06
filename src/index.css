@@ -9,3 +9,10 @@
   font-weight: 400;
   font-style: normal;
 }
+
+@plugin "daisyui/theme" {
+  name: "Dark";
+  default: true;
+  --color-primary:#CAEB66;
+  --color-secondary: teal;
+}
