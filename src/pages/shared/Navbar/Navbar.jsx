@@ -1,7 +1,13 @@
+import { use } from "react";
 import { Link, NavLink } from "react-router";
+import { AuthContext } from "../../../context/AuthContex";
 import ZapshiftLogo from "../zapshift/ZapshiftLogo";
 
 const Navbar = () => {
+  const { name } = use(AuthContext);
+
+  console.log(name);
+
   const navItems = (
     <>
       <li>
@@ -48,9 +54,12 @@ const Navbar = () => {
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">{navItems}</ul>
         </div>
-        <div className="navbar-end">
+        <div className="navbar-end gap-4">
           <Link className="btn btn-primary text-black" to={"login"}>
             Login
+          </Link>
+          <Link className="btn btn-primary text-black" to={"register"}>
+            Register
           </Link>
         </div>
       </div>
