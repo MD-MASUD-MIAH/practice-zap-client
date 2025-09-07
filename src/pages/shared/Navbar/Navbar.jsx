@@ -1,4 +1,4 @@
-import { NavLink } from "react-router";
+import { Link, NavLink } from "react-router";
 import ZapshiftLogo from "../zapshift/ZapshiftLogo";
 
 const Navbar = () => {
@@ -49,7 +49,9 @@ const Navbar = () => {
           <ul className="menu menu-horizontal px-1">{navItems}</ul>
         </div>
         <div className="navbar-end">
-          <a className="btn">Button</a>
+          <Link className="btn btn-primary text-black" to={"login"}>
+            Login
+          </Link>
         </div>
       </div>
     </div>
