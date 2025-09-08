@@ -1,10 +1,10 @@
-import { use } from "react";
+
 import { Link, NavLink } from "react-router";
-import { AuthContext } from "../../../context/AuthContex";
+
 import ZapshiftLogo from "../zapshift/ZapshiftLogo";
 
 const Navbar = () => {
-  const { name } = use(AuthContext);
+ 
 
   console.log(name);
 
