@@ -1,10 +1,10 @@
 import { useForm } from "react-hook-form";
 import { Link } from "react-router";
 import useAuth from "../../hook/useAuth";
+import SocialLogin from "./SocialLogin";
 
-const Register = () => { 
-
-  const { createUser} = useAuth()
+const Register = () => {
+  const { createUser } = useAuth();
   const {
     register,
     handleSubmit,
@@ -12,16 +12,14 @@ const Register = () => {
   } = useForm();
 
   const onSubmit = (data) => {
-    console.log(data); 
-    createUser(data.email, data.password).then(result =>{
-
-      console.log(result.user);
-      
-    }).catch(error=>{
-
-      console.log(error);
-      
-    })
+    console.log(data);
+    createUser(data.email, data.password)
+      .then((result) => {
+        console.log(result.user);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   return (
@@ -79,7 +77,9 @@ const Register = () => {
                 <a className="link link-hover">Forgot password?</a>
               </div>
 
-              <button className="btn btn-primary text-black mt-4">Register</button>
+              <button className="btn btn-primary text-black mt-4">
+                Register
+              </button>
             </fieldset>
             <p>
               <small>
@@ -91,6 +91,7 @@ const Register = () => {
             </p>
           </form>
         </div>
+        <SocialLogin></SocialLogin>
       </div>
     </div>
   );

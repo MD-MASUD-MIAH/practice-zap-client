@@ -1,12 +1,11 @@
-
 import { Link, NavLink } from "react-router";
 
+import Swal from "sweetalert2";
+import useAuth from "../../../hook/useAuth";
 import ZapshiftLogo from "../zapshift/ZapshiftLogo";
 
 const Navbar = () => {
- 
-
-  console.log(name);
+  const { user, logOut } = useAuth();
 
   const navItems = (
     <>
@@ -14,10 +13,45 @@ const Navbar = () => {
         <NavLink to={"/"}>Home</NavLink>
       </li>
       <li>
+        <NavLink to={"/coverage"}>Coverage</NavLink>
+      </li>
+      <li>
         <NavLink to={"/about"}>About</NavLink>
       </li>
     </>
   );
+
+  const handleLogout = () => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You will be logged out of your account!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, log me out!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        logOut()
+          .then(() => {
+            Swal.fire({
+              title: "Logged out!",
+              text: "You have been successfully logged out.",
+              icon: "success",
+            }).then(() => {});
+          })
+          .catch((err) => {
+            console.error("Logout error:", err);
+            Swal.fire(
+              "Error",
+              "Something went wrong while logging out.",
+              "error"
+            );
+          });
+      }
+    });
+  };
+
   return (
     <div>
       <div className="navbar w-11/12 mx-auto">
@@ -55,12 +89,26 @@ const Navbar = () => {
           <ul className="menu menu-horizontal px-1">{navItems}</ul>
         </div>
         <div className="navbar-end gap-4">
-          <Link className="btn btn-primary text-black" to={"login"}>
-            Login
-          </Link>
-          <Link className="btn btn-primary text-black" to={"register"}>
-            Register
-          </Link>
+          {user?.email ? (
+            <>
+              <button
+                onClick={handleLogout}
+                className="btn btn-primary text-black"
+              >
+                Logout
+              </button>
+            </>
+          ) : (
+            <>
+              {" "}
+              <Link className="btn btn-primary text-black" to={"login"}>
+                Login
+              </Link>
+              <Link className="btn btn-primary text-black" to={"register"}>
+                Register
+              </Link>
+            </>
+          )}
         </div>
       </div>
     </div>
