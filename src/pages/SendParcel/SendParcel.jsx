@@ -52,7 +52,7 @@ export default function SendParcelForm() {
   const selectedSenderCity = watch("senderWarehouse");
   const selectedReceiverCity = watch("receiverWarehouse");
 
-  // warehouses data
+  // warehouses data aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
   useEffect(() => {
     // Assuming /warehouses.json contains an array of objects like:
     // [{ city: "City A", covered_area: ["Area 1", "Area 2"] }, ...]
