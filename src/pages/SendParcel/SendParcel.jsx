@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 
 // Define a reusable InputField component for cleaner JSX
-const InputField = ({ label, type = "text", placeholder, register, name, error, isTextarea = false }) => {
+const InputField = ({  type = "text", placeholder, register, name, error, isTextarea = false }) => {
   const commonProps = {
     ...register(name, { required: true }),
     className: isTextarea ? "textarea textarea-bordered w-full" : "input input-bordered w-full",
@@ -26,7 +26,7 @@ const InputField = ({ label, type = "text", placeholder, register, name, error, 
 };
 
 // Define a reusable SelectField component
-const SelectField = ({ label, register, name, error, options, placeholder }) => (
+const SelectField = ({  register, name, error, options, placeholder }) => (
   <div>
     {/* <label className="label">{label}</label> */}
     <select {...register(name, { required: true })} className="select select-bordered w-full">
