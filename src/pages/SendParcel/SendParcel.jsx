@@ -52,7 +52,7 @@ export default function SendParcelForm() {
   const selectedSenderCity = watch("senderWarehouse");
   const selectedReceiverCity = watch("receiverWarehouse");
 
-  // Fetch warehouses data
+  // warehouses data
   useEffect(() => {
     // Assuming /warehouses.json contains an array of objects like:
     // [{ city: "City A", covered_area: ["Area 1", "Area 2"] }, ...]
@@ -78,12 +78,15 @@ export default function SendParcelForm() {
 
   // Helper function for warehouse options
   const warehouseOptions = warehouses.map(w => w.city);
+  
 
+  console.log(warehouseOptions);
+  
   return (
     // Outer container matching the general style from the image
     <div className="p-6 max-w-6xl mx-auto font-sans">
       <h1 className="text-3xl font-bold mb-4 text-[#000000]">Add Parcel</h1>
-      <hr className="mb-8 w-16 h-1 bg-[#ff0099] border-0 mx-0" /> {/* Decorative line */}
+      <hr className="mb-8 w-16 h-1 bg-green-500 border-0 mx-0" /> {/* Decorative line */}
 
       <h2 className="text-xl font-semibold mb-4 text-[#000000]">Enter your parcel details</h2>
 
