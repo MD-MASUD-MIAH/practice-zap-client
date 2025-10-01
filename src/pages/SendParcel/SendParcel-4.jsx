@@ -280,7 +280,7 @@ export default function SendParcelForm() {
           </div>
         </div>
 
-        {/* Submit Button - Matching the style and color */}
+        
         <div className="pt-6">
           <button 
             type="submit" 
